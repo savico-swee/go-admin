@@ -39,6 +39,7 @@ func (rm *RoleMenu) GetPermis() ([]string, error) {
 	var r []Menu
 	table := orm.Eloquent.Select("sys_menu.permission").Table("sys_menu").Joins("left join sys_role_menu on sys_menu.menu_id = sys_role_menu.menu_id")
 
+
 	table = table.Where("role_id = ?", rm.RoleId)
 
 	table = table.Where("sys_menu.menu_type in('F','C')")
