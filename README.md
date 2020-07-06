@@ -25,6 +25,8 @@
 
 [在线文档](https://wenjianzhang.github.io/go-admin-site)
 
+[视频教程](https://space.bilibili.com/565616721/channel/detail?cid=125737)
+
 ## ✨ 特性
 
 - 遵循 RESTful API 设计规范
@@ -62,50 +64,33 @@
 8.  操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
 9.  登录日志：系统登录日志记录查询包含登录异常。
 10. 系统接口：根据业务代码自动生成相关的api接口文档。
-11. 代码生成：根据数据表结构生成对应的增删改查相对应业务，全部可视化编程。
+11. 代码生成：根据数据表结构生成对应的增删改查相对应业务，全部可视化编程，基本业务可以0代码实现。
 12. 表单构建：自定义页面样式，拖拉拽实现页面布局。
 13. 服务监控：查看一些服务器的基本信息。
 
-## ⚙ 配置详情
+## 准备工作
 
-1. 配置文件说明
-```yml
-settings:
-  application:  
-    # 项目启动环境            
-    mode: dev  # dev开发环境 test测试环境 prod线上环境；
-    host: 0.0.0.0  # 主机ip 或者域名，默认0.0.0.0
-    # 服务名称
-    name: go-admin   
-    # 服务端口
-    port: 8000   
-    readtimeout: 1   
-    writertimeout: 2 
-  log:
-    # 日志文件存放路径
-    dir: temp/logs
-  jwt:
-    # JWT加密字符串
-    secret: go-admin
-    # 过期时间单位：秒
-    timeout: 3600
-  database:
-    # 数据库名称
-    name: dbname 
-    # 数据库类型
-    dbtype: mysql    
-    # 数据库地址
-    host: 127.0.0.1  
-    # 数据库密码
-    password: password  
-    # 数据库端口
-    port: 3306       
-    # 数据库用户名
-    username: root   
-```
+你需要在本地安装 [go] [gin] [node](http://nodejs.org/) 和 [git](https://git-scm.com/) 
 
-2. 文件路径  go-admin/config/settings.yml
+同时配套了系列教程包含视频和文档，如何从下载完成到熟练使用，强烈建议大家先看完这些教程再来实践本项目！！！
 
+### 轻松实现go-admin写出第一个应用 - 文档教程
+
+[步骤一 - 基础内容介绍](http://doc.zhangwj.com/go-admin-site/guide/intro/tutorial01.html)
+
+[步骤二 - 实际应用 - 编写增删改查](http://doc.zhangwj.com/go-admin-site/guide/intro/tutorial02.html) 
+
+### 手把手教你从入门到放弃 - 视频教程 
+
+[如何启动go-admin](https://www.bilibili.com/video/BV1z5411x7JG)
+
+[使用生成工具轻松实现业务](https://www.bilibili.com/video/BV1Dg4y1i79D)
+
+[go-admin菜单的配置说明](https://www.bilibili.com/video/BV1Wp4y1D715)
+
+[多命令启动方式讲解以及IDE配置](https://www.bilibili.com/video/BV1Fg4y1q7ph)
+
+**如有问题请先看上述使用文档和文章，若不能满足，欢迎 issue 和 pr ，视频教程和文档持续更新中**
 
 ## 📦 本地开发
 
@@ -121,7 +106,8 @@ cd ./go-admin
 # 编译项目
 go build
 
-# 修改配置
+# 修改配置 
+# 文件路径  go-admin/config/settings.yml
 vi ./config/setting.yml 
 
 # 1. 配置文件中修改数据库信息 
@@ -140,8 +126,6 @@ vi ./config/setting.yml
 ./go-admin server -c config/settings.yml -p 8000 -m dev
 
 ```
-[在线文档](https://wenjianzhang.github.io/go-admin-site)
-
 
 ### 文档生成
 ```bash
@@ -166,51 +150,6 @@ env GOOS=linux GOARCH=amd64 go build main.go
 
 演示地址：[http://www.zhangwj.com](http://www.zhangwj.com/#/login)
 
-## 📈 版本
-
-### 2020-04-23 新功能及优化
-
-1. 添加单服务命令
-2. 添加单数据库数据化命令
-3. 调整项目结构
-3. 部分代码优化
-3. 添加根接口
-4. 其他已知bug的修复
-
-### 2020-04-13 新功能及优化
-
-1. 数据库初始化方式改为gorm 迁移方式
-2. 删除原有创建、修改时间和is_del字段，改用gorm 原生逻辑删除功能
-3. 添加服务监控基础指标
-3. 框架结构调整
-3. 部分代码优化
-4. 其他已知bug的修复
-
-
-### 2020-04-08 新功能及优化
-
-1. 添加sqlite3的支持
-1. 数据库字段格式统一
-2. 用户新增bug修复
-3. 修改数据初始化脚本
-4. 验证码改为数字验证 
-5. 删除redis暂时无用组件
-6. 其他已知bug的修复
-
-### 2020-04-01 新功能及优化
-
-1. 代码生成器
-2. 代码优化
-3. 已知bug修复
-
-#### 2020-03-15 新功能及优化
-
-1. 添加用户头像上传
-2. 添加用户密码修改
-3. 操作日志页面调整
-4. 优化验证码背景色
-
-看到好多体验的朋友验证码错误，所以调整了对比度，方便大家体验！
 
 ## 📨 互动
 
@@ -227,8 +166,6 @@ env GOOS=linux GOARCH=amd64 go build main.go
   </tr>
 </table>
   
-
-
 
 ## 🤝 特别感谢
 [chengxiao](https://github.com/chengxiao)
@@ -250,7 +187,7 @@ env GOOS=linux GOARCH=amd64 go build main.go
 
 ## ❤️ 赞助者
 
-zhuqiyun
+zhuqiyun LLL狐
 
 ## 🔑 License
 
